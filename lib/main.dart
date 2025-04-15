@@ -5,6 +5,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'members.dart';
+import 'mycard.dart';
 import 'variables.dart';
 import 'contact.dart';
 import 'members.dart';
@@ -13,12 +14,20 @@ import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 void main() async {
   await Hive.initFlutter();
   var box = await Hive.openBox('database');
+
+  // Initialize MyCard variables from Hive if they exist
+  myCardPhone = box.get('myCardPhone', defaultValue: ['Your Phone Number']);
+  myCardEmail = box.get('myCardEmail', defaultValue: ['Your Email']);
+  myCardUrl = box.get('myCardUrl', defaultValue: ['Your URL']);
+  myCardPhoto = box.get('myCardPhoto', defaultValue: '');
+
   runApp(CupertinoApp(
     theme: CupertinoThemeData(brightness: Brightness.dark),
     debugShowCheckedModeBanner: false,
     home: Homepage(),
   ));
 }
+
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -412,7 +421,7 @@ class _HomepageState extends State<Homepage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    CupertinoPageRoute(builder: (context) => AboutPage()),
+                    CupertinoPageRoute(builder: (context) => MyCard()),
                   );
                 },
                 child: Row(
@@ -445,6 +454,7 @@ class _HomepageState extends State<Homepage> {
                   ],
                 ),
               ),
+
               SizedBox(height: 10),
               Divider(color: CupertinoColors.systemGrey.withOpacity(0.3)),
               Expanded(
