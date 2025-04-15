@@ -21,7 +21,7 @@ workflows:
       # Decode keystore from Base64
       - name: Decode keystore
         script: |
-          echo "$CM_BASE64" | base64 --decode > android/app/contacts_keystore.jks
+          echo "$CM_BASE64" | base64 --decode > android/app/zencontacts.jks
 
       # Build AAB in release mode (ensure release flag is set)
       - name: Build AAB
