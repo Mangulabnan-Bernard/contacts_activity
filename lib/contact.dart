@@ -221,7 +221,6 @@ class _ContactState extends State<Contact> {
                 ),
               ),
 
-
               SizedBox(height: 10,),
               GestureDetector(
                 onTap: () async{
