@@ -1,6 +1,5 @@
+List<String> phone = [];
+List<String> email = [];
+List<String> url = [];
 String name = "";
-String phone = "";
-String url = "";
-String email = "";
 String photo = "";
-

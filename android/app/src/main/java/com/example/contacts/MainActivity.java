@@ -1,4 +1,4 @@
-package com.example.contacts;
+package com.developer.zencontacts;
 
 import io.flutter.embedding.android.FlutterActivity;
 
