@@ -92,13 +92,7 @@ class _ContactState extends State<Contact> {
                             Navigator.pop(context);
                           },
                         ),
-                        CupertinoButton(
-                          child: Icon(
-                            CupertinoIcons.photo_camera_solid,
-                            color: CupertinoColors.white,
-                          ),
-                          onPressed: _replaceImage,
-                        ),
+
                       ],
                     ),
                   ),

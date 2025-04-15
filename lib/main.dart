@@ -91,6 +91,10 @@ class _HomepageState extends State<Homepage> {
   }
 
   void _showDeleteConfirmationDialog(int index) {
+    if (index < 0 || index >= filteredContacts.length) {
+      print('Invalid index in _showDeleteConfirmationDialog: $index');
+      return;
+    }
     showCupertinoDialog(
       context: context,
       builder: (context) {
@@ -447,6 +451,10 @@ class _HomepageState extends State<Homepage> {
                 child: ListView.builder(
                   itemCount: filteredContacts.length,
                   itemBuilder: (context, int index) {
+                    if (index < 0 || index >= filteredContacts.length) {
+                      print('Invalid index in ListView.builder: $index');
+                      return Container();
+                    }
                     return Dismissible(
                       key: Key(filteredContacts[index]['name']),
                       direction: DismissDirection.horizontal,
@@ -474,6 +482,10 @@ class _HomepageState extends State<Homepage> {
                       },
                       child: GestureDetector(
                         onTap: () {
+                          if (index < 0 || index >= filteredContacts.length) {
+                            print('Invalid index in onTap: $index');
+                            return;
+                          }
                           setState(() {
                             name = filteredContacts[index]['name'];
                             phone = filteredContacts[index]['phone'];
@@ -490,7 +502,7 @@ class _HomepageState extends State<Homepage> {
                           child: Row(
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(top: 45),
+                                padding: EdgeInsets.only(top: 35),
                                 child: SizedBox(width: 10),
                               ),
                               Expanded(
@@ -499,7 +511,10 @@ class _HomepageState extends State<Homepage> {
                                   children: [
                                     Text(filteredContacts[index]['name'] == " "
                                         ? filteredContacts[index]['phone'][0]
-                                        : filteredContacts[index]['name']),
+                                        : filteredContacts[index]['name'],
+                                style: TextStyle(fontSize: 13),
+                              ),
+
                                     Divider(
                                       color: CupertinoColors.systemGrey.withOpacity(0.3),
                                     ),
