@@ -1,6 +1,6 @@
 {
-    "name": "ioscontacts",
-    "short_name": "ioscontacts",
+    "name": "contacts",
+    "short_name": "contacts",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
